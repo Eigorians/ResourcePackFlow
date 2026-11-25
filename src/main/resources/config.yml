@@ -1,0 +1,55 @@
+resource-pack:
+  directory: "resourcepack"
+
+  # リソースパック適用方法
+  # force   : 強制適用
+  # message : プレイヤーに適用メッセージを表示
+  # off     : 何もしない
+  mode: "off"
+
+  # 追加パック(zip)を置くディレクトリ (plugins/ResourcePackFlow/ からの相対パス)
+  #
+  # ここに置いた *.zip は、本体パックとは別のリソースパックとして重ねて送信されます。
+  # (Minecraft 1.20.3 以降。同じファイルがあれば本体が優先されます)
+  # パックごとにキャッシュされるため、本体を更新しても追加パックは再ダウンロードされません。
+  # 例: addons/sounds.zip, addons/music.zip
+  #
+  # プレイヤーは /resourcepack setting の「アドオン」で、どのzipを使うか個別に選べます。
+  # (音声などの重いデータを外して、ダウンロードを速くしたい人向け)
+  # 初期状態では全てOFFです。
+  # 名前・アイコン・初期状態・詳細は /resourcepack addon で設定できます。(addons.yml に保存)
+  # zipのファイル名は半角英数字・_・- のみ使用できます。
+  addons-directory: "addons"
+
+
+http:
+  # 内蔵HTTPサーバーの待受アドレス
+  # 基本は 0.0.0.0 のままでOK
+  bind-host: "0.0.0.0"
+
+  # ResourcePackFlow内蔵HTTPサーバーのポート
+  port: 8071
+
+  # 外部プレイヤーから到達できるホスト名またはグローバルIP
+  #
+  # 例:
+  # public-host: "example.com"
+  # public-host: "203.0.113.10"
+  #
+  # 実際にプレイヤーへ送信されるURL:
+  # http://example.com:8071/pack.zip
+  public-host: "example.com"
+
+  # LAN内プレイヤー向けURL
+  #
+  # auto:
+  #   プレイヤーと同一サブネット上のサーバーIPv4を自動検出し、
+  #   http://192.168.x.x:8071/pack.zip のようなURLを生成する。
+  #
+  # 手動指定も可能（ベースURLを指定。/pack.zip は自動で付与されます）:
+  # local-url: "http://192.168.1.10:8071"
+  local-url: "auto"
+
+gemini:
+  api-key: ""   # 環境変数 GEMINI_API_KEY があればそちらを優先
+  model: "gemini-3.5-flash-lite"

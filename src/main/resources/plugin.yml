@@ -1,0 +1,56 @@
+name: ResourcePackFlow
+version: '${version}'
+main: com.eastcompany.eastsub.resourcePackFlow.ResourcePackFlow
+api-version: '1.21'
+softdepend:
+  - Vault
+
+commands:
+  resourcepack:
+    description: ResourcePackFlowのメインコマンド
+    aliases:
+      - rp
+    usage: /resourcepack
+
+  thehat:
+    description: TheHatモデルアイテムを取得
+    usage: /thehat <階層> <アイテム名>
+    permission: resourcepackflow.thehat
+    permission-message: "§cこのコマンドを実行する権限がありません。"
+
+  gacha:
+    description: ガチャを実行します
+    usage: /gacha
+
+permissions:
+  resourcepackflow.build:
+    description: リソースパックをビルド
+    default: op
+
+  resourcepackflow.reload:
+    description: 設定を再読み込み
+    default: op
+
+  resourcepackflow.addon:
+    description: アドオンの名前・アイコン・初期状態・詳細を設定
+    default: op
+
+  resourcepackflow.apply.others:
+    description: 他のプレイヤーにリソースパックを送信
+    default: op
+
+  resourcepackflow.settings.admin:
+    description: ResourcePackFlowのサーバー設定を変更
+    default: op
+
+  resourcepackflow.thehat:
+    description: TheHatコマンドを使用する権限
+    default: op
+
+  resourcepackflow.admin.login:
+    description: Web管理画面へのログイン認証コマンドを実行する権限
+    default: op
+
+  resourcepackflow.admin.give:
+        description: ガチャパックアイテムの付与
+        default: op
